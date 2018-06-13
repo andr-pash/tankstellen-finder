@@ -54,11 +54,12 @@ export class Login extends Component{
 
         user.loadMe({
             onOk: () => {
-                successAction(user)
+                user.requestSessionToken(true, {
+                    onOk: (tokenMap) => successAction(user),
+                    onError: (err) => errorAction(err)
+                })
             },
-            onError: (err) => {
-                errorAction(err)
-            }
+            onError: (err) => errorAction(err)
         })
     }
 
