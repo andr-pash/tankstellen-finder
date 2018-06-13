@@ -55,8 +55,15 @@ export class Home extends Component {
     /** show spinner */
     this.setState({ loading: true })
 
-
     /** Do your logic here */
+    const query = ''
+
+    Apiomat.Tankstelle.getTankstelles(query, {
+      onOk: (gasStations) => successAction(gasStations),
+      onError: (err) => console.error(err)
+    })
+
+
   }
 
   render() {
