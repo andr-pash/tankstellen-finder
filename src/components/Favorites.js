@@ -31,6 +31,15 @@ export class Favorites extends Component {
     }
 
     /** do your logic here */
+    let gasStations = []
+
+    try {
+      gasStations = await promisifyListCall(this.user.loadFavorites.bind(this.user))('')
+    } catch(err) {
+      console.error(err)
+    }
+
+    successAction(gasStations)
   }
 
   render() {
