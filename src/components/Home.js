@@ -41,6 +41,10 @@ export class Home extends Component {
    */
   async addFavorite(gasStation) {
     /** do your logic here */
+    this.user.postFavorites(gasStation, {
+      onOk: () => console.log('added favorite', gasStation),
+      onError: (err) => console.error(err)
+    })
   }
 
   async loadGasStations() {
