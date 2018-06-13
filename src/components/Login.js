@@ -48,6 +48,18 @@ export class Login extends Component{
 
 
         /** Do your login action here */
+
+        const user = new Apiomat.TankUser(username, password)
+        Apiomat.Datastore.configureWithCredentials(user)
+
+        user.loadMe({
+            onOk: () => {
+                successAction(user)
+            },
+            onError: (err) => {
+                errorAction(err)
+            }
+        })
     }
 
     render() {
