@@ -41,6 +41,7 @@ export class Home extends Component {
    */
   async addFavorite(gasStation) {
     /** do your logic here */
+    Countly.q.push(['add_event',{key: "added Favorite" }]);
     this.user.postFavorites(gasStation, {
       onOk: () => console.log('added favorite', gasStation),
       onError: (err) => console.error(err)

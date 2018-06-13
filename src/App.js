@@ -10,6 +10,11 @@ import { Login } from './components/Login';
 import { Favorites } from './components/Favorites';
 import { userStore } from './stores/userStore';
 
+const Countly = window.Countly
+const Apiomat = window.Apiomat
+
+Countly.init({ app_key: Apiomat.User.ANALYTICSAPPKEY, url: Apiomat.User.ANALYTICSURL });
+
 const App = () => 
 <Router>
     <div>
