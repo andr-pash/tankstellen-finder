@@ -56,7 +56,10 @@ export class Home extends Component {
     this.setState({ loading: true })
 
     /** Do your logic here */
-    const query = 'name startswith "A"'
+
+    const loc = await this.getLocation()
+    const distance = 110
+    const query = `geoLocation within [${loc.latitude}, ${loc.longitude}, ${distance}]`
 
     Apiomat.Tankstelle.getTankstelles(query, {
       onOk: (gasStations) => successAction(gasStations),
