@@ -56,7 +56,7 @@ export class Home extends Component {
     this.setState({ loading: true })
 
     /** Do your logic here */
-    const query = ''
+    const query = 'name startswith "A"'
 
     Apiomat.Tankstelle.getTankstelles(query, {
       onOk: (gasStations) => successAction(gasStations),
